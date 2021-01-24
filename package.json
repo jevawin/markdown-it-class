@@ -28,5 +28,8 @@
   },
   "jest": {
     "transform": {}
+  },
+  "dependencies": {
+    "blogwin": "file:.."
   }
 }

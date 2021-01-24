@@ -75,7 +75,27 @@ describe('markdown-it-class', () => {
     expect(md.render(mdtxt).trim()).toBe(htmltxt)
   })
   
-  
+  it("adds classes to code fences", () => {
+    const mapping = {
+        code: "tag",
+      },
+      mdtxt =
+        "```\
+          javascript console.log('Hello World');\
+        ```";
+    htmltxt =
+      "<pre>\
+        <code class=\"tag\">\
+          javascript console.log('Hello World');\
+        </code>\
+      </pre>";
+
+    const md = new MarkdownIt();
+    md.use(MarkdownItClass, mapping);
+
+    expect(md.render(mdtxt).trim()).toBe(htmltxt);
+  });
+    
   it('adds classes to img tags', () => {
     const mapping = {
         img: 'tag',
